@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>싸울텨?</title>
+<title>납치</title>
 
 <style>
 * { box-sizing: border-box; }
@@ -73,8 +73,8 @@ h1{
 
 .btn:active{ transform:scale(.98); }
 
-.No{ left:0; background:#ff4d6d; color:#fff; }
-.Yes { left:160px; background:#d6d6d6; color:#111; }
+.yes{ left:0; background:#ff4d6d; color:#fff; }
+.no { left:160px; background:#d6d6d6; color:#111; }
 
 .result{
   margin-top:18px;
@@ -101,17 +101,15 @@ h1{
 <body>
   <div class="card">
     <h1>
-    매맞을텨?<br>
-    싸울래?
-  
+      납치당할래?<br>
     </h1>
 
     <div class="btn-container" id="btnArea">
-      <button class="btn No" id="NoBtn" type="button">No</button>
-      <button class="btn Yes" id="YesBtn" type="button">Yes</button>
+      <button class="btn yes" id="yesBtn" type="button">Yes</button>
+      <button class="btn no" id="noBtn" type="button">No</button>
     </div>
 
-    <div class="result" id="result">❤️ 아닝!! ❤️</div>
+    <div class="result" id="result"> 넌 원할 줄 알았어<br> ❤️확정❤️</div>
   </div>
 
 <script>
@@ -126,7 +124,7 @@ h1{
     return;
   }
 
-  NoBtn.addEventListener("click", () => {
+  yesBtn.addEventListener("click", () => {
     document.body.style.backgroundImage =
       'linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url("02.jpg")';
     if (result) result.style.display = "block";
@@ -159,18 +157,18 @@ h1{
   }
 
   // PC: 올리면 도망
-  YesBtn.addEventListener("mouseenter", moveYes);
+  noBtn.addEventListener("mouseenter", moveNo);
 
   // 모바일: 누르려는 순간 도망
-  YesBtn.addEventListener("touchstart", (e) => {
+  noBtn.addEventListener("touchstart", (e) => {
     e.preventDefault();
-    moveYes();
+    moveNo();
   }, { passive:false });
 
   // 클릭도 방지
-  YesBtn.addEventListener("click", (e) => {
+  noBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    moveYes();
+    moveNo();
   });
 
 })();
